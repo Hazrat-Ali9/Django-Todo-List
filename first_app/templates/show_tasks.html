@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div style="width:70%; margin:auto; ">
+
+    <h1 style="text-align:center;width: 50%;margin: auto; border: 3px solid green; padding: 10px;">Tasks</h1>
+    <br>
+    {%if data%}
+    <table class="table table-bordered border-dark table-hover" style="text-align: center;">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for task in data%}
+            {%if task.is_completed == False%}
+            <tr>
+                <td>{{task.taskTitle}} </td>
+                <td>{{task.taskDescription}} </td>
+                <td style="color:red">Incomplete</td>
+                <td>
+                    <a href="{%url 'delete_task' task.id %}" class="btn btn-danger btn-sm  me-2">Delete</a>
+                    <a href="{%url 'edit_task' task.id %}" class="btn btn-primary btn-sm me-2">Edit</a>
+                    <a href="{%url 'complete_task' task.id %}" class="btn btn-success btn-sm me-2">Complete</a>
+                </td>
+            </tr>
+            {%endif%}
+            {%endfor%}
+        </tbody>
+    </table>
+    {%else%}
+    <h3 style="text-align: center; color:crimson">No Task Avaliable</h3>
+    {%endif%}
+</div>
+
+
+{%endblock%}

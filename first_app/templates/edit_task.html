@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+
+{%block content%}
+
+<div style="width:50%; margin:auto; ">
+
+    <h1 style="text-align:center;width: 50%;margin: auto; border: 3px solid green; padding: 10px;">Edit Task</h1>
+    <br>
+    <form method="post">
+        {%csrf_token%}
+        {{form|crispy}}
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+</div>
+
+{%endblock%}

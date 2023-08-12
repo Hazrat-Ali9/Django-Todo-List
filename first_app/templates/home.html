@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div style="margin: auto; text-align: center">
+    <h1 style="text-align:center;width: 50%;margin: auto; border: 3px solid green; padding: 10px;">Welcome to To-do list</h1>
+    <br>
+
+<a class="btn btn-primary  me-2" href="{%url 'add_task'%}">Add Task</a>
+<a class="btn btn-danger me-2" href="{%url 'show_tasks'%}">Show Task</a>
+<a class="btn btn-success me-2" href="{%url 'completed_tasks'%}">Completed Task</a>
+
+</div>
+
+
+{%endblock%}
